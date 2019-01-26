@@ -36,9 +36,9 @@ app.get('/restaurants/:id/Suggestions', (req, res) => {
 
 });
 
-app.get('/restaurants/:id/menu-items', (req, res) => {
+app.get('/restaurants/:id/menu_items', (req, res) => {
   // get all the menu items from the menu server
-  httpReq.get(`http://ec2-13-57-210-63.us-west-1.compute.amazonaws.com/restaurants/${req.params.id}/menu-items`)
+  httpReq.get(`http://sdc-menu-lb-580074249.us-east-2.elb.amazonaws.com/restaurants/${req.params.id}/menu_items`)
   .then(function (req) {
     res.status(200).send(req.data);
   })
@@ -48,9 +48,9 @@ app.get('/restaurants/:id/menu-items', (req, res) => {
 
 });
 
-app.get('/restaurants/:id/menu-items/:itemId', (req, res) => {
+app.get('/restaurants/:id/menu_items/:itemId', (req, res) => {
   // get all the menu item Id from the menu server
-  httpReq.get(`http://ec2-13-57-210-63.us-west-1.compute.amazonaws.com/restaurants/${req.params.id}/menu-items/${req.params.itemId}`)
+  httpReq.get(`http://sdc-menu-lb-580074249.us-east-2.elb.amazonaws.com/restaurants/${req.params.id}/menu_items/${req.params.itemId}`)
   .then(function (req) {
     res.status(200).send(req.data);
   })
